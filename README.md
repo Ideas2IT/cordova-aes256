@@ -7,7 +7,7 @@ This _**cordova**_ _**ionic**_ plugin allows you to perform _**AES 256**_ encryp
 # Getting Started
 
 1. **Install plugin**  
- _`ionic cordova plugin add https://github.com/Ideas2IT/cordova-aes256`_
+ _`ionic cordova plugin add cordova-plugin-aes256-encryption`_
  
  
 2. **Declare cordova variable and access the plugin after the platform get initialized**
