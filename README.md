@@ -2,13 +2,18 @@
 
 This _**cordova**_ _**ionic**_ plugin allows you to perform _**AES 256**_ encryption and decryption on the plain text. It's a cross-platform plugin which supports both Android and iOS. The encryption and decryption are performed on the device native layer so that the performance is much faster.
 
+### AES Encryption Mode
+AES 256 CBC mode encryption is used. For Android, PKCS5Padding is used and for iOS PKCS7Padding is used.
+
 - [Getting Started](https://github.com/Ideas2IT/cordova-aes256/blob/master/README.md#getting-started)
+- [References](https://github.com/Ideas2IT/cordova-aes256/blob/master/README.md#references)
 
 # Getting Started
 
-1. **Install plugin**  
+1. **Install Plugins**  
  _`ionic cordova plugin add cordova-plugin-aes256-encryption`_
  
+    _`cordova plugin add cordova-plugin-add-swift-support --save`_
  
 2. **Declare cordova variable and access the plugin after the platform get initialized**
 
@@ -54,3 +59,8 @@ export class AES256Provider {
 
 }
 ```
+
+# References
+[https://developer.android.com/reference/javax/crypto/Cipher](https://developer.android.com/reference/javax/crypto/Cipher)
+
+[https://github.com/SwiftyBeaver/AES256CBC](https://github.com/SwiftyBeaver/AES256CBC)

@@ -52,6 +52,17 @@ public class AES256 extends CordovaPlugin {
         return false;
     }
 
+    /**
+     * <p>
+     * To perform the AES256 encryption
+     * </p>
+     *
+     * @param secureKey A 32 bytes string, which will used as input key for AES256 encryption
+     * @param value     A string which will be encrypted
+     * @param iv        A 16 bytes string, which will used as initial vector for AES256 encryption
+     * @return AES Encrypted string
+     * @throws Exception
+     */
     private String encrypt(String secureKey, String value, String iv) throws Exception {
         byte[] pbkdf2SecuredKey = generatePBKDF2(secureKey.toCharArray(), PBKDF2_SALT.getBytes("UTF-8"),
                 PBKDF2_ITERATION_COUNT, PBKDF2_KEY_LENGTH);
@@ -68,6 +79,17 @@ public class AES256 extends CordovaPlugin {
 
     }
 
+    /**
+     * <p>
+     * To perform the AES256 decryption
+     * </p>
+     *
+     * @param secureKey A 32 bytes string, which will used as input key for AES256 decryption
+     * @param value     A 16 bytes string, which will used as initial vector for AES256 decryption
+     * @param iv        An AES256 encrypted data which will be decrypted
+     * @return AES Decrypted string
+     * @throws Exception
+     */
     private String decrypt(String secureKey, String value, String iv) throws Exception {
         byte[] pbkdf2SecuredKey = generatePBKDF2(secureKey.toCharArray(), PBKDF2_SALT.getBytes("UTF-8"),
                 PBKDF2_ITERATION_COUNT, PBKDF2_KEY_LENGTH);
@@ -83,6 +105,16 @@ public class AES256 extends CordovaPlugin {
         return new String(original);
     }
 
+    /**
+     * @param password       The password
+     * @param salt           The salt
+     * @param iterationCount The iteration count
+     * @param keyLength      The length of the derived key.
+     * @return PBKDF2 secured key
+     * @throws Exception
+     * @see <a href="https://docs.oracle.com/javase/8/docs/api/javax/crypto/spec/PBEKeySpec.html">
+     * https://docs.oracle.com/javase/8/docs/api/javax/crypto/spec/PBEKeySpec.html</a>
+     */
     public static byte[] generatePBKDF2(char[] password, byte[] salt, int iterationCount,
                                         int keyLength) throws Exception {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance(PBKDF2_ALGORITHM);
