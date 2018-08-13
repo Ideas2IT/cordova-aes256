@@ -1,0 +1,7 @@
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile 'com.github.ExCiteS:apache-commons-codec-shaded:1.11'
+}

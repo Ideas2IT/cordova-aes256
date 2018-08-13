@@ -14,6 +14,7 @@
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
         <source-file src="src/android/AES256.java" target-dir="src/com/ideas2it/aes256/AES256" />
+        <framework src="src/android/plugin.gradle" custom="true" type="gradleReference"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
