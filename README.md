@@ -29,6 +29,12 @@ export class AES256Provider {
   secureIV: String = '1234567891123456'; // Any string, the length should be 16
 
   constructor(private platform: Platform) {
+      // To generate random secure key
+      this.generateSecureKey('some string');  // Optional
+      
+      // To generate random secure IV
+      this.generateSecureIV('some string');   // Optional
+      
       let data = "test";
       encrypt(this.secureKey, this.secureIV, data); 
       let encryptedData = "AE#3223==";
@@ -51,6 +57,30 @@ export class AES256Provider {
       cordova.plugins.AES256.encrypt(secureKey, secureIV, encryptedData,
         (decryptedData) => {
           console.log('Decrypted Data----', decryptedData);
+        }, (error) => {
+          console.log('Error----', error);
+        });
+    });
+  }
+  
+  generateSecureKey(password) {
+    this.platform.ready().then(() => {
+      cordova.plugins.AES256.generateSecureKey(password,
+        (secureKey) => {
+          this.secureKey = secureKey;
+          console.log('Secure Key----', secureKey);          
+        }, (error) => {
+          console.log('Error----', error);
+        });
+    });
+  }
+  
+  generateSecureIV(password) {
+    this.platform.ready().then(() => {
+      cordova.plugins.AES256.generateSecureIV(password,
+        (secureIV) => {
+          this.secureIV = secureIV;
+          console.log('Secure IV----', secureIV);          
         }, (error) => {
           console.log('Error----', error);
         });
