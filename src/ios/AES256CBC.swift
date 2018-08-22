@@ -245,6 +245,10 @@ final public class AES256CBC {
         }
         return nil
     }
+    
+    public class func generateSalt() -> String {
+        return randomText(32)
+    }
 
     /// returns random string (uppercase & lowercase, no spaces) of 32 characters length
     /// which can be used as SHA-256 compatbile password

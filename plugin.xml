@@ -22,8 +22,11 @@
                 <param name="ios-package" value="AES256" />
             </feature>
         </config-file>
+        <header-file src="src/ios/AES256-Plugin-Bridging-Header.h" />
+        <framework src="Security.framework" />
         <source-file src="src/ios/AES256.swift" />
         <source-file src="src/ios/AES256CBC.swift" />
+        <source-file src="src/ios/PBKDF2.swift" />
         <dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
     </platform>
 </plugin>
