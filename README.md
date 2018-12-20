@@ -54,7 +54,7 @@ export class AES256Provider {
 
   decrypt(secureKey, secureIV, encryptedData) {
     this.platform.ready().then(() => {
-      cordova.plugins.AES256.encrypt(secureKey, secureIV, encryptedData,
+      cordova.plugins.AES256.decrypt(secureKey, secureIV, encryptedData,
         (decryptedData) => {
           console.log('Decrypted Data----', decryptedData);
         }, (error) => {
