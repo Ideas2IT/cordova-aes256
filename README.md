@@ -25,7 +25,7 @@ declare var cordova: any;
 @Injectable()
 export class AES256Provider {
 
-  secureKey: String = '123456789101234567890123456789011'; // Any string, the length should be 32
+  secureKey: String = '12345678910123456789012345678901'; // Any string, the length should be 32
   secureIV: String = '1234567891123456'; // Any string, the length should be 16
 
   constructor(private platform: Platform) {
