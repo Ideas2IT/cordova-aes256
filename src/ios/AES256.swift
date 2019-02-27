@@ -5,7 +5,7 @@
     private static let PBKDF2_ITERATION_COUNT = 1001;
     
     // Encrypts the plain text using aes256 encryption alogrithm
-    func encrypt(_ command: CDVInvokedUrlCommand) {
+    @objc(encrypt:) func encrypt(_ command: CDVInvokedUrlCommand) {
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR,
             messageAs: "Error occurred while performing Encryption"
@@ -27,7 +27,7 @@
     }
     
     // Decrypts the aes256 encoded string into plain text
-    func decrypt(_ command: CDVInvokedUrlCommand) {
+    @objc(decrypt:) func decrypt(_ command: CDVInvokedUrlCommand) {
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR,
             messageAs: "Error occurred while performing Decryption"
@@ -49,7 +49,7 @@
     }
     
     // Generates the secure key from the given password
-    func generateSecureKey(_ command: CDVInvokedUrlCommand) {
+    @objc(generateSecureKey:) func generateSecureKey(_ command: CDVInvokedUrlCommand) {
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR,
             messageAs: "Error occurred while generating secure key"
@@ -68,7 +68,7 @@
     }
     
     // Generates the IV from the given password
-    func generateSecureIV(_ command: CDVInvokedUrlCommand) {
+    @objc(generateSecureIV:) func generateSecureIV(_ command: CDVInvokedUrlCommand) {
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR,
             messageAs: "Error occurred while generating secure IV"
