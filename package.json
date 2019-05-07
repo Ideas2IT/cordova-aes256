@@ -24,6 +24,9 @@
     "encryption",
     "cordova-aes256"
   ],
+  "dependencies": {
+    "cordova-plugin-add-swift-support": "2.0.1"
+  },
   "author": "Ideas2it",
   "license": "MIT",
   "bugs": {
