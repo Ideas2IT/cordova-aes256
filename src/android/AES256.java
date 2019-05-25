@@ -40,37 +40,42 @@ public class AES256 extends CordovaPlugin {
     private static final Random RANDOM = new SecureRandom();
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(final String action, final JSONArray args,  final CallbackContext callbackContext) throws JSONException {
         try {
-            if (ENCRYPT.equalsIgnoreCase(action)) {
-                String secureKey = args.getString(0);
-                String iv = args.getString(1);
-                String value = args.getString(2);
-                callbackContext.success(encrypt(secureKey, value, iv));
-                return true;
-            } else if (DECRYPT.equalsIgnoreCase(action)) {
-                String secureKey = args.getString(0);
-                String iv = args.getString(1);
-                String value = args.getString(2);
-                callbackContext.success(decrypt(secureKey, value, iv));
-                return true;
-            } else if (GENERATE_SECURE_KEY.equalsIgnoreCase(action)) {
-                String password = args.getString(0);
-                callbackContext.success(generateSecureKey(password));
-                return true;
-            } else if (GENERATE_SECURE_IV.equalsIgnoreCase(action)) {
-                String password = args.getString(0);
-                callbackContext.success(generateSecureIV(password));
-                return true;
-            } else {
-                callbackContext.error("Invalid method call");
-                return false;
-            }
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        if (ENCRYPT.equalsIgnoreCase(action)) {
+                            String secureKey = args.getString(0);
+                            String iv = args.getString(1);
+                            String value = args.getString(2);
+                            callbackContext.success(encrypt(secureKey, value, iv));
+                        } else if (DECRYPT.equalsIgnoreCase(action)) {
+                            String secureKey = args.getString(0);
+                            String iv = args.getString(1);
+                            String value = args.getString(2);
+                            callbackContext.success(decrypt(secureKey, value, iv));
+                        } else if (GENERATE_SECURE_KEY.equalsIgnoreCase(action)) {
+                            String password = args.getString(0);
+                            callbackContext.success(generateSecureKey(password));
+                        } else if (GENERATE_SECURE_IV.equalsIgnoreCase(action)) {
+                            String password = args.getString(0);
+                            callbackContext.success(generateSecureIV(password));
+                        } else {
+                            callbackContext.error("Invalid method call");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Error occurred while performing " + action + " : " + e.getMessage());
+                        callbackContext.error("Error occurred while performing " + action);
+                    }
+                }
+            });
         } catch (Exception e) {
             System.out.println("Error occurred while performing " + action + " : " + e.getMessage());
             callbackContext.error("Error occurred while performing " + action);
         }
-        return false;
+        return  true;
     }
 
     /**

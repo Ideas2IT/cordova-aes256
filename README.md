@@ -95,10 +95,3 @@ export class AES256Provider {
 
 [https://github.com/SwiftyBeaver/AES256CBC](https://github.com/SwiftyBeaver/AES256CBC)
 
-# Known issues
-Sometimes you will see a warning message in the console like this:
-```
-2018-08-31 17:59:54.204442+0200 App Name[645:64889] THREAD WARNING: ['AES256'] took '43.134766' ms. Plugin should use a background thread.
-```
-
-It's by design and no error. See [https://github.com/Ideas2IT/cordova-aes256/issues/4](this issue) for more information on this warning.
