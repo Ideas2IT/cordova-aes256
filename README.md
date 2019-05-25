@@ -1,6 +1,6 @@
 # Cordova-AES256 Encryption And Decryption
 
-This _**cordova**_ _**ionic**_ plugin allows you to perform _**AES 256**_ encryption and decryption on the plain text. It's a cross-platform plugin which supports both Android and iOS. The encryption and decryption are performed on the device native layer so that the performance is much faster.
+This _**cordova**_ _**ionic**_ plugin allows you to perform _**AES 256**_ encryption and decryption on the plain text. It's a cross-platform plugin which supports both Android and iOS. The encryption and decryption are performed on the device native layer so that the performance is much faster. The entire operations is performed in the background thread.
 
 ### AES Encryption Mode
 AES 256 CBC mode encryption is used. For Android, PKCS5Padding is used and for iOS PKCS7Padding is used.
