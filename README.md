@@ -90,6 +90,20 @@ export class AES256Provider {
 }
 ```
 
+# Installation Errors
+
+```
+Failed to install 'cordova-plugin-aes256-encryption': CordovaError: Version of installed plugin: "cordova-plugin-add-swift-support@1.7.1" does not satisfy dependency plugin requirement "cordova-plugin-add-swift-support@^2.0.1". Try --force to use installed plugin as dependency.
+
+```
+
+If Above error has occurred then run
+
+```
+ionic cordova plugin add cordova-plugin-aes256-encryption --force --save
+
+```
+
 # References
 [https://developer.android.com/reference/javax/crypto/Cipher](https://developer.android.com/reference/javax/crypto/Cipher)
 

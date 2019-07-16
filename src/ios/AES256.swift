@@ -1,5 +1,7 @@
+import CommonCrypto;
+
 @objc(AES256) class AES256 : CDVPlugin {
-    
+
     private static let SECURE_KEY_LENGTH = 16;
     private static let SECURE_IV_LENGTH = 8;
     private static let PBKDF2_ITERATION_COUNT = 1001;
@@ -23,7 +25,7 @@
             )
         }
     }
-    
+
     // Decrypts the aes256 encoded string into plain text
     @objc(decrypt:) func decrypt(_ command: CDVInvokedUrlCommand) {
         AES256.aes256Queue.async {
@@ -59,7 +61,7 @@
         )
       }
     }
-    
+
     // Generates the IV from the given password
     @objc(generateSecureIV:) func generateSecureIV(_ command: CDVInvokedUrlCommand) {
       AES256.aes256Queue.async {
