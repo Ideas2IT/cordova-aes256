@@ -25,7 +25,7 @@
     "cordova-aes256"
   ],
   "dependencies": {
-    "cordova-plugin-add-swift-support": "2.0.1"
+    "cordova-plugin-add-swift-support": "^2.0.2"
   },
   "author": "Ideas2it",
   "license": "MIT",
